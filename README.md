@@ -1,2 +1,1 @@
-# D-PHP-FROM-SCRATCH
-Explore the fundamentals of PHP through a curated collection of examples, exercises, and projects, aimed at honing your skills and understanding from the ground up in 'D-PHP-FROM-SCRATCH' repository.
+Explore the fundamentals of PHP through hands-on projects and comprehensive tutorials in this repository, taking you from a beginner to a proficient developer ready to tackle real-world challenges.
