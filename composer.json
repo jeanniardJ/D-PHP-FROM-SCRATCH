@@ -1,0 +1,17 @@
+{
+    "name": "jonat/d-php-from-scratch",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Jonat\\DPhpFromScratch\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Jonathan J",
+            "email": "contact@jja-dev.fr"
+        }
+    ],
+    "require": {}
+}
