@@ -10,6 +10,8 @@
 services:
   server:
     build: .
+    volumes:
+      - .:/var/www/html
     ports:
       - 9000:80
 

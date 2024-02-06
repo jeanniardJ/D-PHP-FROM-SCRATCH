@@ -17,6 +17,15 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 # Copy app files from the app directory.
 COPY . /var/www/html
 
+# Modifiez le DocumentRoot dans le fichier de configuration Apache
+RUN sed -i 's!/var/www/html!/var/www/html/public!g' /etc/apache2/sites-available/000-default.conf
+
+# Activez le module rewrite d'Apache
+RUN a2enmod rewrite
+
+# Redémarrez Apache pour prendre en compte les modifications
+RUN service apache2 restart
+
 # Your PHP application may require additional PHP extensions to be installed
 # manually. For detailed instructions for installing extensions can be found, see
 # https://github.com/docker-library/docs/tree/master/php#how-to-install-more-php-extensions
@@ -44,7 +53,8 @@ COPY . /var/www/html
 
 # Use the default production configuration for PHP runtime arguments, see
 # https://github.com/docker-library/docs/tree/master/php#configuration
-RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
+RUN mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini"
+
 RUN composer install
 # Switch to a non-privileged user (defined in the base image) that the app will run under.
 # See https://docs.docker.com/go/dockerfile-user-best-practices/
